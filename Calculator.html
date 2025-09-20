@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Calculator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root{
+      --bat-black:#0d0f12;
+      --bat-gray:#1b1f24;
+      --bat-mid:#232a32;
+      --bat-gold:#ffc400;
+      --bat-gold-d:#e0ad00;
+      --bat-white:#e7eaf0;
+      --bat-green:#1dd1a1;
+      --bat-red:#ff6b6b;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--bat-white);
+      background:
+        radial-gradient(1200px 500px at 70% -10%, rgba(255,196,0,0.12), transparent 60%),
+        linear-gradient(180deg, var(--bat-black), var(--bat-gray) 60%, var(--bat-mid));
+      letter-spacing: .2px;
+    }
+
+    .wrap {
+      max-width: 980px;
+      margin: 28px auto 64px;
+      padding: 0 20px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+    .bat-badge{
+      width: 48px; height: 48px;
+      display: grid; place-items: center;
+      background: var(--bat-gold);
+      border-radius: 999px;
+      box-shadow: 0 0 0 4px rgba(255,196,0,.18), 0 12px 30px rgba(0,0,0,.45) inset;
+    }
+    .title {
+      line-height: 1.1;
+    }
+    .title h1 {
+      margin: 0;
+      font-size: clamp(20px, 3vw, 28px);
+      font-weight: 800;
+      letter-spacing: .4px;
+    }
+    .title p {
+      margin: 2px 0 0;
+      opacity: .8;
+      font-size: 14px;
+    }
+
+    .hint {
+      background: rgba(255,196,0,.1);
+      border: 1px dashed var(--bat-gold);
+      color: var(--bat-white);
+      padding: 10px 12px;
+      border-radius: 10px;
+      margin: 14px 0 6px;
+      font-size: 13px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 18px 0 28px;
+      background: linear-gradient(180deg, #171a1f, #121519);
+      border: 1px solid #20252c;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(0,0,0,.35);
+    }
+    thead th {
+      background: linear-gradient(180deg, var(--bat-gold), var(--bat-gold-d));
+      color: #111;
+      text-transform: uppercase;
+      letter-spacing: .6px;
+      font-weight: 900;
+      font-size: 13px;
+      padding: 12px 10px;
+    }
+    tbody td, tfoot td {
+      padding: 12px 10px;
+      text-align: center;
+      border-top: 1px solid #222831;
+      font-variant-numeric: tabular-nums;
+    }
+    tbody tr:nth-child(odd){ background: rgba(255,255,255,.02); }
+    tbody tr:hover { background: rgba(255,196,0,.06); }
+
+    .ok { color: var(--bat-green); font-weight: 700; }
+    .err { color: var(--bat-red); font-weight: 700; }
+
+    h2 {
+      margin: 26px 0 6px;
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: .5px;
+    }
+
+    .footer-note{
+      opacity: .65;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <!-- Simple inline bat emblem -->
+      <div class="bat-badge" aria-hidden="true">
+        <svg width="28" height="16" viewBox="0 0 28 16" fill="#111" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14 0c2 2 4-1 6 0 1 0 2 1 2 2 2-1 4 0 6 2-3 0-5 1-6 3 1 2 2 4 2 6-2-1-4-2-6-4-1 1-2 2-4 2s-3-1-4-2c-2 2-4 3-6 4 0-2 1-4 2-6-1-2-3-3-6-3 2-2 4-3 6-2 0-1 1-2 2-2 2-1 4 2 6 0Z"/>
+        </svg>
+      </div>
+      <div class="title">
+        <h1>Batman Calculator — Gotham Ledger</h1>
+        <p>Enter numbers via prompts; results render below. Justice served in tabular form.</p>
+      </div>
+    </header>
+
+    <div class="hint">
+      Tip: When the prompts appear, click **Cancel** to end input and see the summary.
+    </div>
+
+    <!-- The script will write the tables below -->
+    <div id="app-root"></div>
+  </div>
+
+  <!-- Keep the filename exactly as referenced below -->
+  <script src="calculator.js"></script>
+
+  <div class="wrap footer-note">
+    <p>© Wayne Enterprises Labs — Demo only.</p>
+  </div>
+</body>
+</html>
