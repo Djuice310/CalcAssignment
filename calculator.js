@@ -10,10 +10,10 @@
   document.write('<tbody>');
 
   while (true) {
-    const x = prompt("Gotham Input — Enter the first number (x):");
+    const x = prompt("Enter the first number :");
     if (x === null) break;
 
-    const y = prompt("Gotham Input — Enter the second number (y):");
+    const y = prompt("Enter the second number:");
     if (y === null) break;
 
     const operator = prompt("Choose an operator (+, -, *, /, %):");
@@ -89,7 +89,7 @@
     );
     document.write('</tbody></table>');
   } else {
-    document.write('<h2>Bat-Summary</h2>');
+    document.write('<h2>Summary</h2>');
     document.write('<div class="hint">No valid results to summarize. The night is quiet in Gotham.</div>');
   }
 })();
